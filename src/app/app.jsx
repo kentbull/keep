@@ -21,12 +21,15 @@ ProfileSvc.check().then(
     Notify.requestList();
     Mail.launchEventSource();
   },
-  () => {
+  (err) => {
     if (m.route.get() !== '/dashboard') {
       m.route.set('/dashboard');
     }
   }
-);
+)
+.catch((err) => {
+  console.log(`Profile check error: ${JSON.stringify(err)}`);
+});
 
 let root = document.body;
 

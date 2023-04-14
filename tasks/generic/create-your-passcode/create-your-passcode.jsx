@@ -83,6 +83,7 @@ class CreatePasscode {
       .then(() => {
         Profile.created = true;
         vnode.attrs.end();
+        m.route.set('/dashboard');
       })
       .catch((err) => {
         console.log('initializeAgent', err);

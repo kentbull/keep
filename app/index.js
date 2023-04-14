@@ -25,8 +25,8 @@ const createWindow = () => {
     log.transports.file.resolvePath = () => path.join(keep_home, 'keep.log');
     win.loadFile('./index.html');
 
-    let API_PORT = 5621;
-    let HOST = 'http://127.0.0.1';
+    let API_PORT = `${process.env.API_PORT}`;
+    let HOST = `${process.env.API_HOST}`;
 
     const configPath = path.join(__dirname, 'config.json');
     const debugPath = path.join(__dirname, 'debug.json');

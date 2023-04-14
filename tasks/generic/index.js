@@ -1,5 +1,7 @@
 import m from 'mithril';
 
+import variables from './variables';
+
 // Tasks
 import ConfigureMultiSigGroupTask from './configure-multi-sig-group/configure-multi-sig-group';
 import CreateYourAIDTask from './create-your-aid/create-your-aid';
@@ -17,12 +19,12 @@ import {DefaultMapTask} from "../../src/app/services/tasks";
 
 const tasks = {
   'create-passcode': [
-    new CreatePasscodeTask({ label: 'Create Your Passcode poop' }),
+    new CreatePasscodeTask({ label: 'Create Your Passcode' }),
     new EnterPasscodeTask({ label: 'Enter Your Passcode' }),
   ],
   'create-identifier': [
-    new IntroToYourRoleTask({ label: 'Intro to Your Role' }),
-    new CreateYourAIDTask({ label: 'Incept Local Single-Sig AID' }),
+    new IntroToYourRoleTask({ label: 'Intro to Your Role', variables: variables.introToYourRole }),
+    new CreateYourAIDTask({ label: 'Incept Local Single-Sig AID', variables: variables.createYourAid }),
   ],
   'create-multisig': [
     new VideoCallTask({
@@ -33,6 +35,7 @@ const tasks = {
     new VideoCallTask({ initiate: false, label: 'Join Multi-Sig AID Inception' }),
   ],
   'join-multisig': [new JoinMultiSigGroupTask('Join Multi-Sig Group')],
+  'login': [new EnterPasscodeTask({ id: 'enter-passcode', label: 'Enter Your Passcode' })],
   'main': [
     new CredentialIssuanceTask({ label: 'Credential Issuance' }),
     new CredentialRevocationTask({ label: 'Credential Revocation' }),

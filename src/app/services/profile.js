@@ -61,8 +61,8 @@ class Profile {
             reject();
           }
         },
-        () => {
-          reject();
+        (err) => {
+          reject(err);
         }
       );
     });
@@ -168,7 +168,7 @@ class Profile {
             .finally(() => {
               Profile._locked = true;
               Profile._identifiers = undefined;
-              reject(undefined);
+              reject("Keystore is locked");
             });
         });
     });

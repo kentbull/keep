@@ -53,6 +53,10 @@ class Tasks {
     this._impl = _impl;
   }
 
+  static get impl() {
+    return this._impl;
+  }
+
   static get all() {
     return this._impl.all;
   }
